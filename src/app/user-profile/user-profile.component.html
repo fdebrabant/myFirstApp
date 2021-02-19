@@ -3,7 +3,7 @@
     <div class="userInfos">
         <span>Name: {{User.name}}</span>
         <span>Firstname: {{User.firstName}}</span>
-        <span [hidden]="User.show">Age: {{User.age}}</span>
+        <span *ngIf="!show">Age: {{User.age}}</span>
     </div>
     <div class="quote">
         <p>{{User.quote}}</p>
