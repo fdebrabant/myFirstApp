@@ -17,3 +17,7 @@
 .quote {
     margin-left: 10px;
 }
+
+.important {
+    color: blueviolet;
+}

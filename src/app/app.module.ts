@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MenuComponent } from './menu/menu.component';
+import { SingUpComponent } from './sing-up/sing-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MenuComponent,
+    SingUpComponent,
   ],
   imports: [
     BrowserModule,

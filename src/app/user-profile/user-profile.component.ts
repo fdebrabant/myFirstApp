@@ -15,7 +15,10 @@ export class UserProfileComponent implements OnInit {
     photo : 'https://randomuser.me/api/portraits/lego/2.jpg',
   };
 
-  show = false;
+  show: boolean = false;
+  isImportant: boolean = true;
+
+  movies: string[] = ["a", "b", "c", "d",];
   
 
   constructor() { }
@@ -23,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ToggleShowAge(): void{
+  ToggleShowAge(): void {
     this.show = !this.show;
   }
 

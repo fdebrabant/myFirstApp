@@ -1,9 +1,10 @@
 <div class="card">
     <img [src]="User.photo" [alt]="User.name" />
     <div class="userInfos">
-        <span>Name: {{User.name}}</span>
-        <span>Firstname: {{User.firstName}}</span>
-        <span *ngIf="!show">Age: {{User.age}}</span>
+        <span [ngClass]="{'important': isImportant}">Name: {{User.name}}</span>
+        <span [ngStyle]="{background: isImportant ? 'red' : 'yellow'}">Firstname: {{User.firstName}}</span>
+        <!-- <span [hidden]="!show">Age: {{User.age}}</span> -->
+        <span *ngIf="show">Age: {{User.age}}</span>
     </div>
     <div class="quote">
         <p>{{User.quote}}</p>
@@ -11,5 +12,8 @@
     </div>
     <div class="button-show-age">
         <button (click)="ToggleShowAge()">Show/Hidden my age</button>
+        <ul *ngFor="let movie of movies">
+            <li>{{ movie }}</li>
+        </ul>
     </div>
 </div> 
