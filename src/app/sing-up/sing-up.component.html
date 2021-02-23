@@ -1,1 +1,69 @@
-<p>sing-up works!</p>
+<form (ngSubmit)="singUp.valid && onSubmit()" #singUp="ngForm">
+    <div>
+        <label for="firstName-user">Firstname</label>
+        <input 
+            name="firstName-user"
+            type="text"
+            placeholder="Your firstname"
+            required
+            minlength="3"
+            maxlength="15"
+            [(ngModel)]="model.firstname"
+            #firstname="ngModel"
+        >
+    </div>
+    <div *ngIf="firstname.errors">
+        <span *ngIf="firstname.errors?.required">Firstname is required 😫</span>
+        <span *ngIf="firstname.errors?.maxlength">Firstname max length must be 15 😫</span>
+        <span *ngIf="firstname.errors?.minlength">Firstname min length must be 3 😫</span>
+    </div>
+    <div>
+        <label for="lastName-user">Lastname</label>
+        <input 
+            name="lastName-user"
+            type="text"
+            placeholder="Your lastname"
+            required
+            minlength="3"
+            maxlength="15"
+            [(ngModel)]="model.lastname"
+            #lastname="ngModel"
+        >
+    </div>
+    <div *ngIf="lastname.errors">
+        <span *ngIf="lastname.errors?.required">Lastname is required 😫</span>
+    </div>
+    <div>
+        <label for="email-user">Email</label>
+        <input 
+            name="email-user"
+            type="email"
+            placeholder="Your email"
+            required
+            email
+            [(ngModel)]="model.email"
+            #email="ngModel"
+        >
+    </div>
+    <div *ngIf="email.errors">
+        <span *ngIf="email.errors?.required">Email is required 😫</span>
+        <span *ngIf="email.errors?.email">Email is not valid 😫</span>
+    </div>
+    <div>
+        <label for="password-user">Password</label>
+        <input 
+            name="password-user"
+            type="password"
+            placeholder="Your password"
+            required
+            [(ngModel)]="model.password"
+            #password="ngModel"
+        >
+    </div>
+    <div *ngIf="password.errors">
+        <span *ngIf="password.errors?.required">Password is required 😫</span>
+    </div>
+    
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>

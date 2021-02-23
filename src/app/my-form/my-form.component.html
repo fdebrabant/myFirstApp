@@ -1,0 +1,65 @@
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <div>
+        <label for="title-order">Title</label>
+        <input  
+            name="title-order" 
+            type="text" 
+            placeholder="your title" 
+            [(ngModel)]="model.title" 
+            required 
+            maxlength="45"
+            minlength="5"
+            #title="ngModel"
+        >
+    </div>
+    <div *ngIf="title.errors">
+        <span *ngIf="title.errors?.required">Title is required 😫</span>
+        <span *ngIf="title.errors?.maxlength">Title max length must be 45 😫</span>
+        <span *ngIf="title.errors?.minlength">Title min length must be 5 😫</span>
+    </div>
+    <div>
+        <label for="quantity-order">Quantity</label>
+        <input  
+            name="quantity-order" 
+            type="number" 
+            placeholder="quantity" 
+            [(ngModel)]="model.quantity" 
+            required
+            #quantity="ngModel"
+        >
+    </div>
+    <div *ngIf="quantity.errors">
+        <span *ngIf="quantity.errors?.required">Quantity is required 😫</span>
+    </div>
+    <div>
+        <label for="date-order">Date</label>
+        <input 
+            name="date-order" 
+            type="date" 
+            [(ngModel)]="model.date"
+            required
+            #date="ngModel"
+        >
+    </div>
+    <div *ngIf="date.errors">
+        <span *ngIf="date.errors?.required">Date is required 😫</span>
+    </div>
+    <div>
+        <label for="contact-order">Contact</label>
+        <input 
+            name="contact-order" 
+            type="email" 
+            placeholder="janedoe@mail.com"
+            [(ngModel)]="model.contact" 
+            required
+            email
+            #contact="ngModel"
+        >
+    </div>
+    <div *ngIf="contact.errors">
+        <span *ngIf="contact.errors?.required">Contact is required 😫</span>
+        <span *ngIf="contact.errors?.email">email should be valide 😫</span>
+    </div>
+    <button type="reset">Reset</button>
+    <button type="submit">Submit</button>
+</form>
